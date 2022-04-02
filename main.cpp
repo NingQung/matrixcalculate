@@ -1,63 +1,82 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
+int divider(int a,int b){
+    int ta;
+    while (true)
+    {
+        if(a < b){
+            ta = a;
+            a = b;
+            b = ta;
+        }
+        for(int i = 0;a > b; i++){
+            a = a - b;
+        }
+        if(a ==0 || a==b){
+            return b;
+            break;
+        }
+    }
+}
 int main()
 {
     int a,b,c,d;
     float x=0;
     while(true){
-        cout << "¯x°}¹Bºâ¾÷¤@¥N" << endl << "­¼ªk ½Ð«ö1 ¡F n¦¸¤è ½Ð«ö2 ¡F ¤G¶¥¤Ï¤è°} ½Ð«ö3 ¡F " << endl << "°h¥X½Ð«ö0" << endl;
+        cout << "çŸ©é™£é‹ç®—æ©Ÿä¸€ä»£" << endl << "ä¹˜æ³• è«‹æŒ‰1 ï¼› næ¬¡æ–¹ è«‹æŒ‰2 ï¼› äºŒéšŽåæ–¹é™£ è«‹æŒ‰3 ï¼› " << endl << "é€€å‡ºè«‹æŒ‰0" << endl;
         int sta;
         cin >> sta;
         if (sta == 1){
-            cout << "¤w±Ò°Ê¯x°}­¼ªk¡A¥Ø«e¶È¤ä´©¾ã¼Æ"<< endl;
+            cout << "å·²å•Ÿå‹•çŸ©é™£ä¹˜æ³•ï¼Œç›®å‰åƒ…æ”¯æ´æ•´æ•¸\nè«‹è¼¸å…¥å…©å€‹çŸ©é™£çš„å¤§å°(è¡ŒÃ—åˆ—)"<< endl;
             while (true){
-            cout << "¦p­n°h¥X¡A½Ð«ö¿é¤J0,0"<< endl;
-            cin >> a >> b;
-            if (a==0 && b==0){break;}
-            cin >> c >> d;
-             if(b != c){
-                cout << "µLªk¶i¦æ¹Bºâ"<< endl;
-            }
-            else{
-            int mata[a][b];
-            for(int i=0; i<a; i++){ //mata in
-                for(int j=0; j<b; j++){
-                    cin >> mata[i][j];
-                }
-            }
-            int matb[c][d];
-            for(int i=0; i<c; i++){ //matb in
-                for(int j=0; j<d; j++){
-                    cin >> matb[i][j];
-                }
-            }
-            //MatrixMultiple
-            int mato[a][d];
-            for(int i=0; i<a; i++){
-                for(int j=0; j<d; j++){
-                    for(int k=0; k<b; k++){
-                        x = x + mata[i][k]*matb[k][j];
+                cout << "å¦‚è¦é€€å‡ºï¼Œè«‹æŒ‰è¼¸å…¥0 0"<< endl;
+                cin >> a >> b;
+                if (a==0 && b==0){
+                    break;
                     }
-                    mato[i][j] = x;
-                    x=0;
+                cin >> c >> d;
+                if(b != c){
+                    cout << "ç„¡æ³•é€²è¡Œé‹ç®—"<< endl;
                 }
-            }
-            cout << endl;
-            for(int i=0; i<a; i++){for(int j=0; j<d; j++){cout<<mato[i][j]<<" ";}cout<<endl;}
-            }
-
-            //_sleep(1000);
-            //cout << endl;
-            //for(int i=0; i<a; i++){for(int j=0; j<b; j++){cout<<mata[i][j]<<" ";}cout<<endl;} cout<<endl;
-            //for(int i=0; i<c; i++){for(int j=0; j<d; j++){cout<<matb[i][j]<<" ";}cout<<endl;} cout<<endl;
+                else{
+                    cout << "è«‹è¼¸å…¥çŸ©é™£ï¼š" << a << "Ã—" << b << endl;
+                    int mata[a][b];
+                    for(int i=0; i<a; i++){ //mata in
+                        for(int j=0; j<b; j++){
+                        cin >> mata[i][j];
+                        }
+                    }
+                    cout << "è«‹è¼¸å…¥çŸ©é™£ï¼š" << c << "Ã—" << d << endl;
+                    int matb[c][d];
+                    for(int i=0; i<c; i++){ //matb in
+                        for(int j=0; j<d; j++){
+                            cin >> matb[i][j];
+                        }
+                    }
+                    //MatrixMultiple
+                    int mato[a][d];
+                    for(int i=0; i<a; i++){
+                        for(int j=0; j<d; j++){
+                            for(int k=0; k<b; k++){
+                                x = x + mata[i][k]*matb[k][j];
+                            }
+                            mato[i][j] = x;
+                            x=0;
+                        }
+                    }
+                    cout << endl;
+                    for(int i=0; i<a; i++){for(int j=0; j<d; j++){cout<<mato[i][j]<<" ";}cout<<endl;}
+                }
             }
         }
         else if (sta == 2){
-            cout << "¯x°}n¦¸¤è¤p¤u¨ã" << endl << "a*a¶¥¯x°}¡An¦¸¤è¡A¦p»Ý³v¤@Åã¥Ü¡A½Ð«ö0" << endl <<"¿é¤J½d¨Ò:a n b" << endl;
+            cout << "çŸ©é™£næ¬¡æ–¹å°å·¥å…·" << endl << "a*aéšŽçŸ©é™£ï¼Œnæ¬¡æ–¹ï¼Œå¦‚éœ€é€ä¸€é¡¯ç¤ºï¼Œè«‹æŒ‰0ã€å¦å‰‡è«‹æŒ‰1" << endl <<"è¼¸å…¥ç¯„ä¾‹:a n 0" << endl;
             int n;
             cin >> a >> n >> b;
             if (a==0){break;}
             float mata[a][a];
+            cout << "è«‹è¼¸å…¥" << n << "éšŽæ–¹é™£" << endl;
             for(int i=0; i<a; i++){ //mata in
                 for(int j=0; j<a; j++){
                     cin >> mata[i][j];
@@ -94,14 +113,11 @@ int main()
                     if (h == n-1){cout<<endl; for(int i=0; i<a; i++){for(int j=0; j<a; j++){cout<<mata[i][j]<<" ";}cout<<endl;}}
                 }
             }
-
-            //for(int i=0; i<a; i++){for(int j=0; j<a; j++){cout<<mata[i][j]<<" ";}cout<<endl;} cout<<endl;
-            //for(int i=0; i<a; i++){for(int j=0; j<a; j++){cout<<matb[i][j]<<" ";}cout<<endl;} cout<<endl;
         }
         else if (sta == 3){
             int matr[2][2];
             int e=0;
-            cout << "ª½±µ¿é¤J¤G¶¥¯x°}§Y¥i" << endl;
+            cout << "ç›´æŽ¥è¼¸å…¥äºŒéšŽçŸ©é™£å³å¯" << endl;
             for(int i=0; i<2; i++){
                 for(int j=0; j<2; j++){
                     cin >> matr[i][j];
@@ -110,14 +126,20 @@ int main()
             e = matr[0][0]*matr[1][1]-matr[1][0]*matr[0][1];
             x = matr[0][0]; matr[0][0]=matr[1][1]; matr[1][1]=x;
             matr[1][0] = -matr[1][0]; matr[0][1] = -matr[0][1];
-            //for(int i=0; i<2; i++){for(int j=0; j<2; j++){cout<<matr[i][j]<<" ";}cout<<endl;}
             for(int i=0; i<2; i++){
                 for(int j=0; j<2; j++){
                     if(matr[i][j]%e == 0){
                         cout << matr[i][j]/e << " ";
                     }
                     else{
-                        cout << matr[i][j] << "/" << e << " ";
+                        int abma = abs(matr[i][j]);
+                        int abe = abs(e);
+                        int lcm = divider(abma,abe);
+                        if(lcm = 1){
+                            cout << matr[i][j]<< "/" << e << " ";
+                        }else{
+                            cout << matr[i][j]/lcm<< "/" << e/lcm << " ";
+                        }
                     }
                 }
                 cout << endl;
@@ -129,5 +151,3 @@ int main()
     }
     return 0;
 }
-
-
