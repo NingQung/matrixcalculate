@@ -76,7 +76,7 @@ int main()
             cin >> a >> n >> b;
             if (a==0){break;}
             float mata[a][a];
-            cout << "請輸入" << n << "階方陣" << endl;
+            cout << "請輸入" << a << "階方陣" << endl;
             for(int i=0; i<a; i++){ //mata in
                 for(int j=0; j<a; j++){
                     cin >> mata[i][j];
